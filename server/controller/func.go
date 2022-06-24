@@ -1,9 +1,11 @@
-package handler
+package controller
 
 import (
 	"fmt"
 	"net/http"
 )
+
+var Fileserver = http.FileServer(http.Dir("./static"))
 
 func Hellohandler(w http.ResponseWriter, r *http.Request) {
 

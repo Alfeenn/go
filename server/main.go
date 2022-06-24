@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"go/App/handler"
 	"log"
 	"net/http"
+	"server/controller"
 )
 
 func main() {
 
-	fileserver := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileserver)
-	http.HandleFunc("/form", handler.Formhandler())
+	http.Handle("/", controller.Fileserver)
+	http.HandleFunc("/form", Formhandler)
 	http.HandleFunc("/hello", Hellohandler)
 
 	fmt.Printf("Listening on port 8080. . .")
